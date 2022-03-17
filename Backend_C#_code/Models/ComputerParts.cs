@@ -11,5 +11,9 @@ namespace Backend_C__code.Models
         public string Information { get; set ; }
 
         public string ImageLink { get; set ; }
+
+        public string Price { get; set; }
+
+        public string Specification { get; set; }
     }
 }
