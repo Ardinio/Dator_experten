@@ -1,8 +1,8 @@
 namespace Backend_C__code.Models
 {
-    public class CustomerLaptop
+    public class UserLaptop
     {
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
 
         public int LaptopId { get; set; }
     }

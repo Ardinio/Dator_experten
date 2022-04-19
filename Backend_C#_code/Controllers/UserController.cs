@@ -16,12 +16,12 @@ namespace Backend_C__code.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class CustomerController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
 
-        public CustomerController(IConfiguration configuration, IWebHostEnvironment env)
+        public UserController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
@@ -29,13 +29,13 @@ namespace Backend_C__code.Controllers
 
         [HttpGet]
 
-        public JsonResult Get(Customer customer)
+        public JsonResult Get(User user)
         {
             string query =@"
                     declare	@responseMessage nvarchar(250)
 
-                    exec Get_Customer @pemail = '"+customer.Email+@"', 
-                    @ppassword_hash = '"+customer.Password+@"',
+                    exec Get_User @pemail = '"+user.Email+@"', 
+                    @ppassword_hash = '"+user.Password+@"',
                     @responseMessage = @responseMessage output
                     
                     select @responseMessage as N'@responseMessage'";
@@ -61,18 +61,18 @@ namespace Backend_C__code.Controllers
 
         [HttpPost]
 
-        public JsonResult Post(Customer customer)
+        public JsonResult Post(User user)
         {
              string query =@"
                     declare	@responseMessage nvarchar(250)
 
-                    exec dbo.Add_Customer_Information
-                        @pfirst_name = '"+customer.FirstName+@"',
-                        @plast_name = '"+customer.LastName+@"',
-                        @pprofile_image = '"+customer.ProfileImage+@"',
-                        @pemail = '"+customer.Email+@"',
-                        @page = '"+customer.Age+@"',
-                        @ppassword_hash = '"+customer.Password+@"',
+                    exec dbo.Add_User_Information
+                        @pfirst_name = '"+user.FirstName+@"',
+                        @plast_name = '"+user.LastName+@"',
+                        @pprofile_image = '"+user.ProfileImage+@"',
+                        @pemail = '"+user.Email+@"',
+                        @page = '"+user.Age+@"',
+                        @ppassword_hash = '"+user.Password+@"',
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
@@ -95,19 +95,19 @@ namespace Backend_C__code.Controllers
 
         [HttpPut]
 
-        public JsonResult Put(Customer customer)
+        public JsonResult Put(User user)
         {
              string query =@"
                     declare	@responseMessage nvarchar(250)
 
-                    exec dbo.Update_Customer_Information
-                        @pfirst_name = '"+customer.FirstName+@"',
-                        @plast_name = '"+customer.LastName+@"',
-                        @pprofile_image = '"+customer.ProfileImage+@"',
-                        @pemail = '"+customer.Email+@"',
-                        @page = '"+customer.Age+@"',
-                        @ppassword_hash = '"+customer.Password+@"',
-                        @pid = "+customer.CustomerId+@",
+                    exec dbo.Update_User_Information
+                        @pfirst_name = '"+user.FirstName+@"',
+                        @plast_name = '"+user.LastName+@"',
+                        @pprofile_image = '"+user.ProfileImage+@"',
+                        @pemail = '"+user.Email+@"',
+                        @page = '"+user.Age+@"',
+                        @ppassword_hash = '"+user.Password+@"',
+                        @pid = "+user.UserId+@",
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
@@ -133,7 +133,7 @@ namespace Backend_C__code.Controllers
         public JsonResult Delete(int id)
         {
              string query =@"
-                    exec dbo.Delete_Customer
+                    exec dbo.Delete_User
                         @pid = "+id+@"";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");

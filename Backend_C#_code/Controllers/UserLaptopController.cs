@@ -14,22 +14,22 @@ namespace Backend_C__code.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class CustomerComputerPartController : ControllerBase
+    public class UserLaptopController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public CustomerComputerPartController(IConfiguration configuration)
+        public UserLaptopController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         [HttpGet]
 
-        public JsonResult Get(CustomerLaptop customerComputerPart)
+        public JsonResult Get(UserLaptop userLaptop)
         {
             string query =@"
-                    exec Get_Customer_Computer_Part
-                        @pcustomer_id = "+customerComputerPart.CustomerId+@"";
+                    exec Get_User_Laptop
+                        @puser_id = "+userLaptop.UserId+@"";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
             SqlDataReader myReader;
@@ -52,14 +52,14 @@ namespace Backend_C__code.Controllers
 
         [HttpPost]
 
-        public JsonResult Post(CustomerComputerPart customerComputerPart)
+        public JsonResult Post(UserLaptop userLaptop)
         {
              string query =@"
                     declare @responseMessage nvarchar(250)
 
-                    exec dbo.Add_Customer_Computer_Part
-                        @pcustomer_id = "+customerComputerPart.CustomerId+@",
-                        @pcomputer_part_id = "+customerComputerPart.ComputerPartId+@",
+                    exec dbo.Add_User_Laptop
+                        @puser_id = "+userLaptop.UserId+@",
+                        @plaptop_id = "+userLaptop.LaptopId+@",
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
@@ -114,12 +114,12 @@ namespace Backend_C__code.Controllers
         
         [HttpDelete]
 
-        public JsonResult Delete(CustomerComputerPart customerComputerPart)
+        public JsonResult Delete(UserLaptop userLaptop)
         {
              string query =@"
-                    exec dbo.Delete_Customer_Computer_Part
-                        @pcustomer_id = "+customerComputerPart.CustomerId+@",
-                        @pcomputer_part_id = "+customerComputerPart.ComputerPartId+@"";
+                    exec dbo.Delete_User_Laptop
+                        @puser_id = "+userLaptop.UserId+@",
+                        @plaptop_id = "+userLaptop.LaptopId+@"";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
             SqlDataReader myReader;

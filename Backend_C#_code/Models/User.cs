@@ -1,8 +1,8 @@
 namespace Backend_C__code.Models
 {
-    public class Customer
+    public class User
     {
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
 
         public string FirstName { get; set; }
 
