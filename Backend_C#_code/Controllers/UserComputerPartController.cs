@@ -31,7 +31,7 @@ namespace Backend_C__code.Controllers
                     exec Get_User_Computer_Part
                         @puser_id = "+userComputerPart.UserId+@"";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -62,7 +62,7 @@ namespace Backend_C__code.Controllers
                         @pcomputer_part_id = "+userComputerPart.ComputerPartId+@",
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -94,7 +94,7 @@ namespace Backend_C__code.Controllers
         //                 @pspecification = '"+laptops.Specification+@"',
         //                 @pid = "+laptops.LaptopId+@"";
         //     DataTable table = new DataTable();
-        //     string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+        //     string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
         //     SqlDataReader myReader;
         //     using(SqlConnection myCon = new SqlConnection(sqlDataSource))
         //     {
@@ -121,7 +121,7 @@ namespace Backend_C__code.Controllers
                         @puser_id = "+userComputerPart.UserId+@",
                         @pcomputer_part_id = "+userComputerPart.ComputerPartId+@"";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {

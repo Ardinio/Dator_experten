@@ -35,7 +35,33 @@ namespace Backend_C__code.Controllers
                     exec Get_Laptop
                         @pproduct_name = '"+laptops.ProductName+@"'";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
+            SqlDataReader myReader;
+            using(SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+
+        }
+
+        [Route("GetAllLaptops")]
+
+        public JsonResult GetAllLaptops()
+        {
+            string query =@"
+                    exec Get_all_Laptops";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -70,7 +96,7 @@ namespace Backend_C__code.Controllers
                         @pspecification = '"+laptops.Specification+@"',
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -105,7 +131,7 @@ namespace Backend_C__code.Controllers
                         @pid = "+laptops.LaptopId+@",
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -131,7 +157,7 @@ namespace Backend_C__code.Controllers
                     exec dbo.Delete_Laptop
                         @pid = "+id+@"";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {

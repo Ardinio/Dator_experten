@@ -40,7 +40,7 @@ namespace Backend_C__code.Controllers
                     
                     select @responseMessage as N'@responseMessage'";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -75,7 +75,7 @@ namespace Backend_C__code.Controllers
                         @ppassword_hash = '"+user.Password+@"',
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -110,7 +110,7 @@ namespace Backend_C__code.Controllers
                         @pid = "+user.UserId+@",
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -136,7 +136,7 @@ namespace Backend_C__code.Controllers
                     exec dbo.Delete_User
                         @pid = "+id+@"";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {

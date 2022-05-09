@@ -35,7 +35,33 @@ namespace Backend_C__code.Controllers
                     exec Get_Computer_part 
                         @pproduct_name = '"+computer.ProductName+@"'";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
+            SqlDataReader myReader;
+            using(SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+
+        }
+
+        [Route("GetAllComputerParts")]
+
+        public JsonResult GetAllComputerParts()
+        {
+            string query =@"
+                    exec Get_all_Computer_parts";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -70,7 +96,7 @@ namespace Backend_C__code.Controllers
                         @pspecification = '"+computer.Specification+@"',
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -105,7 +131,7 @@ namespace Backend_C__code.Controllers
                         @pid = "+computer.ComputerPartId+@",
                         @responseMessage = @responseMessage output";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -131,7 +157,7 @@ namespace Backend_C__code.Controllers
                     exec dbo.Delete_Computer_part
                         @pid = "+id+@"";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("Customer_and_ProductAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
