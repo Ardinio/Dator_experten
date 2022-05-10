@@ -1,10 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
-import { createTheme, ThemeProvider } from "@mui/system";
+import Layout from "./Layout";
 
 function App() {
   return (
     <BrowserRouter>
-
+      <Layout />
     </BrowserRouter>
   );
 }
