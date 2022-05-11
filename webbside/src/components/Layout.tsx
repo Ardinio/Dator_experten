@@ -19,17 +19,17 @@ const Layout = () => {
             <Navbar />
 
             <Routes>
-                <Route path="/" element={HomePage} />
-                <Route path="/computerparts" element={ComputerPartsPage} />
-                <Route path="/computerpartproduct/:id" element={ComputerPartProductPage} />
-                <Route path="/computerpartproduct" element={ComputerPartProductPage} />
-                <Route path="/laptops" element={LaptopsPage} />
-                <Route path="/laptopproduct/:id" element={LaptopProductPage} />
-                <Route path="/laptopproduct" element={LaptopProductPage} />
-                <Route path="/login" element={LoginPage} />
-                <Route path="/useredit" element={UserEditPage} />
-                <Route path="/userlaptopsproduct" element={UserLaptopsProductsPage} />
-                <Route path="/usercomputerpartsproduct" element={UserComputerPartsProductsPage} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/computerparts" element={<ComputerPartsPage />} />
+                <Route path="/computerpartproduct/:id" element={<ComputerPartProductPage />} />
+                <Route path="/computerpartproduct" element={<ComputerPartProductPage />} />
+                <Route path="/laptops" element={<LaptopsPage />} />
+                <Route path="/laptopproduct/:id" element={<LaptopProductPage />} />
+                <Route path="/laptopproduct" element={<LaptopProductPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/useredit" element={<UserEditPage />} />
+                <Route path="/userlaptopsproduct" element={<UserLaptopsProductsPage />} />
+                <Route path="/usercomputerpartsproduct" element={<UserComputerPartsProductsPage />} />
             </Routes>
         </div>
     )
