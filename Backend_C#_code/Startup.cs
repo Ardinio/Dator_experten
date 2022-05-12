@@ -32,7 +32,8 @@ namespace Backend_C__code
             //Enable CORS
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod()
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
+                .AllowAnyMethod()
                 .AllowAnyHeader());
             });
 

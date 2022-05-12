@@ -33,7 +33,7 @@ namespace Backend_C__code.Controllers
         {
             string query =@"
                     exec Get_Computer_part 
-                        @pproduct_name = '"+computer.ProductName+@"'";
+                        @pid = "+computer.ComputerPartId+@"";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;

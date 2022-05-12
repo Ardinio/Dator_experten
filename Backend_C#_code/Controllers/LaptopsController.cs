@@ -33,7 +33,7 @@ namespace Backend_C__code.Controllers
         {
             string query =@"
                     exec Get_Laptop
-                        @pproduct_name = '"+laptops.ProductName+@"'";
+                        @pid = "+laptops.LaptopId+@"";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
