@@ -8,12 +8,11 @@ const Navbar = () => {
             <div>
                 <AppBar>
                     <Toolbar>
+                        <Typography variant="h6" component="h3">
                             <Link to="/">
-                                <img
-                                    src=""
-                                    alt="awards icon"
-                                />
+                                <p>Start sidan</p>
                             </Link>
+                        </Typography>
                         <Typography variant="h6" component="h3">
                             <Link to="/computerparts">
                                 <p>Dator delar</p>

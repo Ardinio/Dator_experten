@@ -1,10 +1,11 @@
 import React, {Component} from "react";
+import { Container } from "@mui/material";
 
 const HomePage = () => {
     return (
-        <div>
+        <Container sx={{marginY: 20}}>
             This is Home Page
-        </div>
+        </Container>
     )
 }
 

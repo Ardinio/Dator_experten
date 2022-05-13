@@ -1,12 +1,13 @@
 import React, {Component} from "react";
 import { variables } from "../Variables";
+import { Container } from "@mui/material";
 
 const ComputerPartProductPage = () => {
 
     return (
-        <div>
+        <Container sx={{marginY: 20}}>
             This is Computer Part Product Page
-        </div>
+        </Container>
     )
 }
 
