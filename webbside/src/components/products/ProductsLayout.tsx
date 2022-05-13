@@ -5,7 +5,7 @@ const ProductLayout = () => {
     const [computerparts, setcomputerparts] = useState<any[]>([]);
 
     useEffect(() => {
-        fetch(variables.API_URL+'computerparts')
+        fetch(variables.API_URL+'computerparts/1')
         .then(response => response.json())
         .then(data => {
             setcomputerparts(data);
