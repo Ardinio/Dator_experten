@@ -27,13 +27,13 @@ namespace Backend_C__code.Controllers
             _env = env;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
 
-        public JsonResult Get(Laptops laptops)
+        public JsonResult Get(int id)
         {
             string query =@"
                     exec Get_Laptop
-                        @pid = "+laptops.LaptopId+@"";
+                        @pid = "+id+@"";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;
