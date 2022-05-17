@@ -1,11 +1,11 @@
 import { Container } from "@mui/material";
-import ProductLayout from "../components/products/ProductsLayout";
+import ProductLayoutComputerPart from "../components/products/ProductsLayoutComputerPart";
 
 const ComputerPartsPage = () => {
     return (
         <Container sx={{marginY: 20}}>
             This is Computer parts Page
-            <ProductLayout/>
+            <ProductLayoutComputerPart/>
         </Container>
     )
 }

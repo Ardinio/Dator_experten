@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 import { variables } from "../Variables";
 
 const ComputerPartProductPage = () => {
-    const [page, setPage] = useState(1)
+    const [page] = useState(1)
     const param = useParams<{ id: string }>();
     const [computerparts, setcomputerparts] = useState<any[]>([]);
 
@@ -26,7 +26,10 @@ const ComputerPartProductPage = () => {
             
               {computerparts && (computerparts.map(com =>
                 <div key={com.id} > 
-                    <div><p>{com.id}</p></div>
+                    <img
+                        src={com.image_link}
+                        alt="product img"
+                    />
                     <div><p>{com.product_name}</p></div>
                 </div>
                 ))}

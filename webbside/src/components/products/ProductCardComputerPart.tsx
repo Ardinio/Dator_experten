@@ -1,49 +1,31 @@
-import { useState, useEffect } from "react";
 import { Card, CardActions, CardContent, CardMedia } from "@mui/material";
-import { variables } from "../../Variables";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
 
-const ProductCardComputerPart = () => {
-    const [open, setOpen] = useState(false);
-    const [page, setPage] = useState(1)
-    const [computerparts, setcomputerparts] = useState<any[]>([]);
-
-    useEffect(() => {
-        fetch(variables.API_URL+'computerparts/GetAllLaptops')
-        .then(response => response.json())
-        .then(data => {
-            setcomputerparts(data);
-            console.log(data);
-        })
-        .catch(error => console.log(error))
-    }, [page]);
-
-    const handleClick = () => {
-        setOpen(true);
-    }
-
+const ProductCardComputerPart = (props: {com: any} ) => {
     return (
-        <div>
-            {computerparts && (computerparts.map(com =>
-                <Card key={com.id}>
-                <CardMedia image={com.image_link}/>
-                <CardContent>
-                    <Typography>
-                        {com.product_name}
-                    </Typography>
-                    <Typography>
-                        {com.price}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button>
-                        
-                    </Button>
-                </CardActions>
-            </Card>
-            ))}
-        </div>
+        <Grid item xs={3}>
+            <div>
+                <Card key={props.com.id}>
+                    <CardMedia image={props.com.image_link} style={{height: 210, width: '100%'}}/>
+                    <CardContent>
+                        <Typography>
+                            {props.com.product_name}
+                        </Typography>
+                        <Typography>
+                            {props.com.price} SEK
+                        </Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button component={Link} to={`/computerpartproduct/${props.com.id}`} size="small" variant="contained">
+                            Gå till produkt
+                        </Button>
+                    </CardActions>
+                </Card>
+            </div>
+        </Grid>
     )
 }
 
