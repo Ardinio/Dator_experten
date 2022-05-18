@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { variables } from "../../Variables";
 import { Grid } from "@mui/material";
-import ProductCardComputerPart from "./ProductCardComputerPart";
+import ProductCardLaptop from "./ProductCardLaptop";
 
-const ProductLayoutComputerPart = () => {
+const ProductLayoutLaptop = () => {
     const [page ] = useState(1)
-    const [computerparts, setComputerparts] = useState<any[]>([]);
+    const [laptops, setLaptops] = useState<any[]>([]);
 
     useEffect(() => {
-        fetch(variables.API_URL+'computerparts/GetAllComputerParts')
+        fetch(variables.API_URL+'laptops/GetAllLaptops')
         .then(response => response.json())
         .then(data => {
-            setComputerparts(data);
+            setLaptops(data);
             console.log(data);
         })
         .catch(error => console.log(error))
@@ -19,10 +19,10 @@ const ProductLayoutComputerPart = () => {
 
     return (
         <Grid container spacing={5}>
-           {computerparts.map((com, index) => 
-           <ProductCardComputerPart com={com} key={index}/>)}
+           {laptops.map((lap, index) => 
+           <ProductCardLaptop lap={lap} key={index}/>)}
         </Grid>
     )
 }
 
-export default ProductLayoutComputerPart;
+export default ProductLayoutLaptop;
