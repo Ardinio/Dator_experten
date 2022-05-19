@@ -1,10 +1,10 @@
-import React, {Component} from "react";
 import { Container } from "@mui/material";
+import Login from "../components/Login";
 
 const LoginPage = () => {
     return (
         <Container sx={{marginY: 20}}>
-            This is Login Page
+            <Login/>
         </Container>
     )
 }

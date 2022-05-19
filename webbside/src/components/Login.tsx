@@ -1,0 +1,35 @@
+import React from "react";
+import { Grid, Paper, Avatar } from "@mui/material";
+import { TextField } from "@mui/material";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Button } from "@mui/material";
+
+const Login = () => {
+    const paperStyle = {
+        padding: 20,
+        height: '70vh',
+        width: 280,
+        margin: "20px auto"
+    }
+    const avatarStyle = {
+        backgroundColor: "#1bbd7e"
+    }
+
+    return (
+        <Grid>
+            <Paper elevation={10} style={paperStyle}>
+                <Grid container direction="column" alignItems="center" justifyContent="center">
+                    <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
+                    <h2>Logga in</h2>
+                </Grid>
+                <TextField label="Email" placeholder="Ange din email address" type="email" fullWidth required/>
+                <TextField sx={{marginY: 1}} label="Lösenord" placeholder="Ange ditt lösenord" type="password" fullWidth required/>
+                <Button type="submit" color="primary" variant="contained" fullWidth>
+                    Logga in
+                </Button>
+            </Paper>
+        </Grid>
+    )
+}
+
+export default Login;

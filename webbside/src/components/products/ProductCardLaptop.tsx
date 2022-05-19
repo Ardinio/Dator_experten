@@ -9,7 +9,11 @@ const ProductCardLaptop = (props: {lap: any} ) => {
         <Grid item xs={3}>
             <div>
                 <Card key={props.lap.id}>
-                    <CardMedia image={props.lap.product_image} style={{height: 210, width: '100%'}}/>
+                    <CardMedia 
+                        component="img"
+                        height="200"
+                        style={{backgroundSize: 'contain'}}
+                        image={props.lap.product_image} />
                     <CardContent>
                         <Typography>
                             {props.lap.product_name}

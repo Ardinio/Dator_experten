@@ -9,7 +9,10 @@ const ProductCardComputerPart = (props: {com: any} ) => {
         <Grid item xs={3}>
             <div>
                 <Card key={props.com.id}>
-                    <CardMedia image={props.com.image_link} style={{height: 210, width: '100%'}}/>
+                    <CardMedia 
+                        component="img"
+                        height="194"
+                        image={props.com.image_link}/>
                     <CardContent>
                         <Typography>
                             {props.com.product_name}
