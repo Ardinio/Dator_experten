@@ -58,6 +58,40 @@ namespace Backend_C__code.Controllers
             return new JsonResult(table);
 
         }
+        
+        [Route("GetOneUser")]
+
+        [HttpPost]
+
+        public JsonResult GetOneUser(User user)
+        {
+            string query =@"
+                    declare	@responseMessage nvarchar(250)
+
+                    exec Get_User @pemail = '"+user.Email+@"', 
+                    @ppassword_hash = '"+user.Password+@"',
+                    @responseMessage = @responseMessage output
+                    
+                    select @responseMessage as N'@responseMessage'";
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
+            SqlDataReader myReader;
+            using(SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+
+        }
 
         [HttpPost]
 
