@@ -1,8 +1,9 @@
 import React from "react";
-import { Grid, Paper, Avatar } from "@mui/material";
+import { Grid, Paper, Avatar, Typography } from "@mui/material";
 import { TextField } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Login = (props: { setEmail: any , setPassword: any, setPage: any }) => {
     const paperStyle = {
@@ -13,6 +14,9 @@ const Login = (props: { setEmail: any , setPassword: any, setPage: any }) => {
     }
     const avatarStyle = {
         backgroundColor: "#1bbd7e"
+    }
+    const btnStyle= {
+        margin: '8px 0'
     }
 
     return (
@@ -36,9 +40,14 @@ const Login = (props: { setEmail: any , setPassword: any, setPage: any }) => {
                     fullWidth required 
                     onChange={e => props.setPassword(e.target.value)}
                 />
-                <Button type="submit" color="primary" variant="contained" fullWidth onClick={props.setPage}>
+                <Button type="submit" color="primary" variant="contained" style={btnStyle} fullWidth onClick={props.setPage}>
                     Logga in
                 </Button>
+                <Typography> Har du ett konto?
+                    <Link to="/registration">
+                        Registrera
+                    </Link>
+                </Typography>
             </Paper>
         </Grid>
     )

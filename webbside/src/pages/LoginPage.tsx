@@ -34,7 +34,7 @@ const LoginPage = () => {
     }, [page]);
 
     return (
-        <Container sx={{marginY: 20}}>
+        <Container sx={{marginY: 10}}>
             <Login
                 setEmail={setEmail}
                 setPassword={setPassword}

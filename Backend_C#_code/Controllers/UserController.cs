@@ -107,7 +107,9 @@ namespace Backend_C__code.Controllers
                         @pemail = '"+user.Email+@"',
                         @page = '"+user.Age+@"',
                         @ppassword_hash = '"+user.Password+@"',
-                        @responseMessage = @responseMessage output";
+                        @responseMessage = @responseMessage output
+                        
+                    select @responseMessage as N'@responseMessage'";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("Computer_ExpertAppCon");
             SqlDataReader myReader;

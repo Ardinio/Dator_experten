@@ -8,6 +8,7 @@ import LoginPage from "../pages/LoginPage";
 import UserEditPage from "../pages/UserEditPage";
 import UserLaptopsProductsPage from "../pages/UserLaptopsProductsPage";
 import UserComputerPartsProductsPage from "../pages/UsersComputerPartsProductsPage";
+import RegistrationPage from "../pages/RegistrationPage";
 import { CssBaseline } from "@mui/material";
 import Navbar from "./Navbar";
 
@@ -31,6 +32,7 @@ const Layout = () => {
                 <Route path="/useredit" element={<UserEditPage />} />
                 <Route path="/userlaptopsproduct" element={<UserLaptopsProductsPage />} />
                 <Route path="/usercomputerpartsproduct" element={<UserComputerPartsProductsPage />} />
+                <Route path="/registration" element={<RegistrationPage />} />
             </Routes>
         </div>
     )
