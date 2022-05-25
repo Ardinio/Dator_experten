@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { variables } from "../../Variables";
+import { Variables } from "../../Variables";
 import { Grid } from "@mui/material";
 import ProductCardComputerPart from "./ProductCardComputerPart";
 
@@ -8,7 +8,7 @@ const ProductLayoutComputerPart = () => {
     const [computerparts, setComputerparts] = useState<any[]>([]);
 
     useEffect(() => {
-        fetch(variables.API_URL+'computerparts/GetAllComputerParts')
+        fetch(Variables.API_URL+'computerparts/GetAllComputerParts')
         .then(response => response.json())
         .then(data => {
             setComputerparts(data);

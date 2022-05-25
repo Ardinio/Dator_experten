@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Login = (props: { setEmail: any , setPassword: any, setPage: any }) => {
     const paperStyle = {
         padding: 20,
-        height: '70vh',
+        height: "70vh",
         width: 280,
         margin: "20px auto"
     }
@@ -16,7 +16,7 @@ const Login = (props: { setEmail: any , setPassword: any, setPage: any }) => {
         backgroundColor: "#1bbd7e"
     }
     const btnStyle= {
-        margin: '8px 0'
+        margin: "8px 0"
     }
 
     return (
@@ -26,7 +26,8 @@ const Login = (props: { setEmail: any , setPassword: any, setPage: any }) => {
                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
                     <h2>Logga in</h2>
                 </Grid>
-                <TextField label="Email" 
+                <TextField 
+                    label="Email" 
                     placeholder="Ange din email address" 
                     type="email" 
                     fullWidth required 

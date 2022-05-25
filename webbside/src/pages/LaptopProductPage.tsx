@@ -6,7 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { variables } from "../Variables";
+import { Variables } from "../Variables";
 
 const LaptopsProductPage = () => {
     const [page] = useState(1)
@@ -20,7 +20,7 @@ const LaptopsProductPage = () => {
     };
 
     useEffect(() => {
-        fetch(variables.API_URL+'laptops/'+param.id)
+        fetch(Variables.API_URL+'laptops/'+param.id)
         .then(response => response.json())
         .then(data => {
             setLaptops(data);

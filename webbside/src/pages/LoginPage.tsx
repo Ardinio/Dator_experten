@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import { useState, useEffect } from "react";
 import Login from "../components/Login";
-import { variables } from "../Variables";
+import { Variables } from "../Variables";
 
 const LoginPage = () => {
     const [page, setPage] = useState(0)
@@ -14,7 +14,7 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        fetch(variables.API_URL+'user/GetOneUser', {
+        fetch(Variables.API_URL+'user/GetOneUser', {
             method:'POST',
             headers: {
                 'Accept':'application/json',
@@ -32,6 +32,8 @@ const LoginPage = () => {
         })
         .catch(error => console.log(error))
     }, [page]);
+
+    console.log(setEmail)
 
     return (
         <Container sx={{marginY: 10}}>
