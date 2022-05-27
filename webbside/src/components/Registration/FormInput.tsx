@@ -1,19 +1,27 @@
-import { TextField } from "@mui/material";
+import React, { useState } from "react"
+import "./formInput.css"
 
 const FormInput = (props: any) => {
-    const { label, value, onChange, id, ...inputProps} = props
-    const inputStyle = {
-        padding: "15px",
-        margin: "10px 0px"
-    } 
+    const [focused, setFocused] = useState(false);
+    const { label, errorMessage, onChange, id, ...inputProps} = props
    
+    const handleFocus = (e: React.SetStateAction<boolean>) => {
+        setFocused(true);
+    }
+
     return (
-        <div style={inputStyle}>
-            <TextField 
-                label={label}
-                {...inputProps}
-                onChange={onChange}
+        <div className="formInput">
+            <label>{label}</label>
+            <input 
+                {...inputProps} 
+                onChange={onChange} 
+                onBlur={handleFocus} 
+                onFocus={() => 
+                    inputProps.name === "confirmPassword" && setFocused(true)
+                }
+                focused={focused.toString()}
             />
+            <span>{errorMessage}</span>
         </div>
     )
 }

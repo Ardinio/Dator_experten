@@ -33,8 +33,6 @@ const LoginPage = () => {
         .catch(error => console.log(error))
     }, [page]);
 
-    console.log(setEmail)
-
     return (
         <Container sx={{marginY: 10}}>
             <Login

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
 
 const ProductCardLaptop = (props: {lap: any} ) => {
+
     return (
         <Grid item xs={3}>
             <div>
@@ -12,8 +13,12 @@ const ProductCardLaptop = (props: {lap: any} ) => {
                     <CardMedia 
                         component="img"
                         height="200"
-                        style={{backgroundSize: 'contain'}}
-                        image={props.lap.product_image} />
+                        image={props.lap.product_image}
+                        // style={{
+                        //     width: "100%",
+                        //     objectFit: "cover"
+                        // }}
+                        />
                     <CardContent>
                         <Typography>
                             {props.lap.product_name}
