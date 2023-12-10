@@ -20,4 +20,8 @@ cd webbside
 npm install
 npm start
 ```
-Create your own sql database and use the parameters I have created because this use an database for the actual data you will not be able to see any products at the moment. 
+Create your own sql database and use the parameters I have created because this use an database for the actual data you will not be able to see any products at the moment but it would look like this:
+
+-[Tweezer](https://tweezer.netlify.app/)
+
+This is an website I have worked on whit some people.
